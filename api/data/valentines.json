@@ -1,0 +1,70 @@
+{
+  "users": {
+    "823aa033-fd16-489d-82aa-9b5160962648": {
+      "userId": "823aa033-fd16-489d-82aa-9b5160962648",
+      "name": "sudeep",
+      "email": "sudeep@gmail.com",
+      "createdAt": 1770488701500
+    }
+  },
+  "valentines": {
+    "ef331722-104c-4ac0-b75f-9ae0a9b58037": {
+      "shareId": "ef331722-104c-4ac0-b75f-9ae0a9b58037",
+      "userId": "823aa033-fd16-489d-82aa-9b5160962648",
+      "senderName": "sudeep",
+      "recipientName": "srajan",
+      "proposalMessage": "love u bro propose message",
+      "wishMessage": "be happy wish",
+      "videoLink": "https://youtu.be/RUeOpxEBY0Q?si=_ke46AIlSjychaqn",
+      "loveLetterText": "i love u letter",
+      "quizQuestions": [
+        {
+          "id": "d94871ee-20a9-4a13-8d3a-f50a0744647a",
+          "q": "do u love me",
+          "options": [
+            "yes",
+            "no",
+            "maynot",
+            "maybe"
+          ],
+          "answer": 1
+        },
+        {
+          "id": "059f3ab8-cb82-4c5e-8911-6cfeecb8fb17",
+          "q": "do u hate me",
+          "options": [
+            "no",
+            "yes",
+            "maynot",
+            "maybe"
+          ],
+          "answer": 0
+        }
+      ],
+      "galleryItems": [
+        {
+          "id": "9ffc016f-f6c7-4710-a449-cf2699a57012",
+          "imageUrl": "https://i.ibb.co/Cp6Tw9Wz/Screenshot-From-2025-09-15-16-39-13-png.png",
+          "caption": "Sweet memory"
+        },
+        {
+          "id": "f2d2c9e7-d398-43ca-8c65-68f5f7b4c4ac",
+          "imageUrl": "https://i.ibb.co/BHxH01bx/Screenshot-From-2025-09-15-17-03-56-png.png",
+          "caption": "Sweet memory"
+        },
+        {
+          "id": "a5bf0e1c-72c7-4398-9886-2c99134d367d",
+          "imageUrl": "https://i.ibb.co/xqQdqzT6/Screenshot-From-2025-09-15-18-50-52-png.png",
+          "caption": "Sweet memory"
+        }
+      ],
+      "createdAt": 1770488895158,
+      "updatedAt": 1770488895158
+    }
+  },
+  "userValentines": {
+    "823aa033-fd16-489d-82aa-9b5160962648": [
+      "ef331722-104c-4ac0-b75f-9ae0a9b58037"
+    ]
+  }
+}
