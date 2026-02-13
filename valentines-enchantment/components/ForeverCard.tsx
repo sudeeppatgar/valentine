@@ -39,13 +39,6 @@ const ForeverCard: React.FC<{ imageUrl?: string }> = ({ imageUrl }) => {
             ✨
           </span>
         </div>
-
-        <button
-          onClick={() => window.location.reload()}
-          className="mt-6 sm:mt-8 text-rose-300 hover:text-rose-500 text-xs sm:text-sm transition-colors active:text-rose-600"
-        >
-          Relive the magic?
-        </button>
       </div>
     </div>
   );
