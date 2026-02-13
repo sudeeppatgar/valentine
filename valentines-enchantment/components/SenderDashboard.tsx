@@ -644,7 +644,7 @@ const SenderDashboard: React.FC = () => {
 
             <p className="text-rose-500 leading-relaxed">
               To activate your share link, please complete the payment of{" "}
-              <span className="font-semibold text-rose-600">₹149</span> as part
+              <span className="font-semibold text-rose-600">₹59</span> as part
               of our exclusive Valentine’s Day offer. Kindly contact{" "}
               <span className="font-semibold">{paymentContact}</span> for
               payment details.
