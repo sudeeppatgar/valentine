@@ -1,6 +1,6 @@
 import { ValentineData, UserProfile } from "../types";
 
-const API_BASE = import.meta.env.VITE_API_URL || "http://localhost:4000/api";
+const API_BASE = "https://valentine-1-gtr6.onrender.com/api";
 
 const request = async <T>(path: string, options?: RequestInit): Promise<T> => {
   const response = await fetch(`${API_BASE}${path}`, {
