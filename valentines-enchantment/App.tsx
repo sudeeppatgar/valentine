@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Routes, Route, useParams, useNavigate } from "react-router-dom";
 import ProposalCard from "./components/ProposalCard";
 import WishCard from "./components/WishCard";
 import GiftMenuCard from "./components/GiftMenuCard";
@@ -14,36 +15,13 @@ import AboutPage from "./components/AboutPage";
 import { getValentine } from "./services/apiService";
 import { ValentineData } from "./types";
 
-type View =
-  | "proposal"
-  | "wish"
-  | "gift-menu"
-  | "quiz"
-  | "letter"
-  | "gallery"
-  | "video"
-  | "forever";
-
-const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>("proposal");
+// Valentine View - Displays a single valentine with navigation between states
+const ValentineView: React.FC = () => {
+  const { shareId, view } = useParams<{ shareId: string; view?: string }>();
+  const navigate = useNavigate();
   const [valentine, setValentine] = useState<ValentineData | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
-
-  const shareId = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("share");
-  }, []);
-  const isAdmin = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("admin") === "1" || window.location.pathname === "/admin";
-  }, []);
-  const isAbout = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("about") === "1" || window.location.pathname === "/about";
-  }, []);
-
-  const navigateTo = (view: View) => setCurrentView(view);
 
   useEffect(() => {
     if (!shareId) return;
@@ -54,37 +32,11 @@ const App: React.FC = () => {
       .finally(() => setLoading(false));
   }, [shareId]);
 
-  if (isAdmin) {
-    return (
-      <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
-        <FloatingHearts />
-        <div className="w-full max-w-5xl z-10">
-          <AdminDashboard />
-        </div>
-      </div>
-    );
-  }
-  if (isAbout) {
-    return (
-      <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
-        <FloatingHearts />
-        <div className="w-full max-w-5xl z-10">
-          <AboutPage />
-        </div>
-      </div>
-    );
-  }
+  const navigateTo = (viewName: string) => {
+    navigate(`/valentine/${shareId}/${viewName}`);
+  };
 
-  if (!shareId) {
-    return (
-      <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
-        <FloatingHearts />
-        <div className="w-full max-w-5xl z-10">
-          <SenderDashboard />
-        </div>
-      </div>
-    );
-  }
+  const currentView = view || "proposal";
 
   return (
     <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
@@ -201,6 +153,54 @@ const App: React.FC = () => {
         }
       `}</style>
     </div>
+  );
+};
+
+// Home/Sender Dashboard
+const Home: React.FC = () => {
+  return (
+    <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
+      <FloatingHearts />
+      <div className="w-full max-w-5xl z-10">
+        <SenderDashboard />
+      </div>
+    </div>
+  );
+};
+
+// Admin Dashboard
+const Admin: React.FC = () => {
+  return (
+    <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
+      <FloatingHearts />
+      <div className="w-full max-w-5xl z-10">
+        <AdminDashboard />
+      </div>
+    </div>
+  );
+};
+
+// About Page
+const About: React.FC = () => {
+  return (
+    <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
+      <FloatingHearts />
+      <div className="w-full max-w-5xl z-10">
+        <AboutPage />
+      </div>
+    </div>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/admin" element={<Admin />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/valentine/:shareId" element={<ValentineView />} />
+      <Route path="/valentine/:shareId/:view" element={<ValentineView />} />
+    </Routes>
   );
 };
 

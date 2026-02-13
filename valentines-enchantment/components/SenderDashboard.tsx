@@ -19,6 +19,7 @@ import {
   UserProfile,
   ValentineData,
 } from "../types";
+import { Link } from "react-router-dom";
 
 const LOCAL_PROFILE_KEY = "valentine_sender_profile";
 
@@ -647,12 +648,12 @@ const SenderDashboard: React.FC = () => {
               Once the payment is completed, please submit your request below.
               Our team will review and approve it at the earliest.
             </p>
-            <button
-              onClick={() => (window.location.href = "/?about=1")}
+            <Link
+              to="/about"
               className="text-rose-500 underline hover:text-rose-600 cursor-pointer"
             >
               About us
-            </button>
+            </Link>
             <div className="mt-6 flex flex-col md:flex-row gap-3">
               <button
                 type="button"
