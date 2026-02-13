@@ -68,7 +68,7 @@ const SenderDashboard: React.FC = () => {
   const [requestLoading, setRequestLoading] = useState(false);
   const [showPaymentPrompt, setShowPaymentPrompt] = useState(false);
 
-  const paymentContact = import.meta.env.VITE_PAYMENT_CONTACT || "YOUR_NUMBER";
+  const paymentContact = "8951787715";
 
   const buildPayload = () => ({
     senderName,
@@ -639,17 +639,20 @@ const SenderDashboard: React.FC = () => {
               To activate your share link, please complete the payment of{" "}
               <span className="font-semibold text-rose-600">₹149</span> as part
               of our exclusive Valentine’s Day offer. Kindly contact{" "}
-              <span className="font-semibold">
-                {paymentContact} || 9481649205
-              </span>{" "}
-              for payment details.
+              <span className="font-semibold">{paymentContact}</span> for
+              payment details.
             </p>
 
             <p className="text-rose-400 text-sm mt-3">
               Once the payment is completed, please submit your request below.
               Our team will review and approve it at the earliest.
             </p>
-
+            <button
+              onClick={() => (window.location.href = "/?about=1")}
+              className="text-rose-500 underline hover:text-rose-600 cursor-pointer"
+            >
+              About us
+            </button>
             <div className="mt-6 flex flex-col md:flex-row gap-3">
               <button
                 type="button"

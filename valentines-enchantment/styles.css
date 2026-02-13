@@ -1,0 +1,369 @@
+/* Global Responsive Styles */
+:root {
+  --font-size-base: 16px;
+  --font-size-sm: 14px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 28px;
+  --font-size-4xl: 32px;
+  --font-size-5xl: 36px;
+  --padding-base: 1rem;
+  --padding-lg: 1.5rem;
+  --padding-xl: 2rem;
+}
+
+/* Mobile First - Default for small screens */
+@media (max-width: 640px) {
+  :root {
+    --font-size-base: 14px;
+    --font-size-sm: 12px;
+    --font-size-lg: 15px;
+    --font-size-xl: 17px;
+    --font-size-2xl: 20px;
+    --font-size-3xl: 24px;
+    --font-size-4xl: 28px;
+    --font-size-5xl: 32px;
+    --padding-base: 0.75rem;
+    --padding-lg: 1rem;
+    --padding-xl: 1.25rem;
+  }
+
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Reduce floating hearts on mobile for better performance */
+  .fixed.bottom-\[-50px\] {
+    font-size: 12px !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  :root {
+    --font-size-base: 15px;
+    --font-size-sm: 13px;
+    --font-size-lg: 16px;
+    --font-size-xl: 18px;
+    --font-size-2xl: 22px;
+    --font-size-3xl: 26px;
+    --font-size-4xl: 30px;
+    --font-size-5xl: 34px;
+  }
+}
+
+/* Card responsive design */
+.card-enter {
+  animation: slideUp 0.6s ease-out;
+  will-change: transform, opacity;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUpMobile {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-enter {
+    animation: slideUpMobile 0.5s ease-out;
+  }
+}
+
+/* Doll animation - reduced on mobile */
+.doll-anim {
+  animation: doll-bounce 0.8s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes doll-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@media (max-width: 640px) {
+  @keyframes doll-bounce {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-6px) scale(1.03);
+    }
+  }
+}
+
+/* Responsive spacing and padding */
+@media (max-width: 640px) {
+  .p-10 {
+    padding: 1.25rem !important;
+  }
+
+  .p-12 {
+    padding: 1.5rem !important;
+  }
+
+  .px-12 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  .px-10 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .py-4 {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+
+  .mb-6 {
+    margin-bottom: 1rem !important;
+  }
+
+  .mb-8 {
+    margin-bottom: 1.25rem !important;
+  }
+
+  .gap-12 {
+    gap: 1.5rem !important;
+  }
+
+  .gap-8 {
+    gap: 1rem !important;
+  }
+
+  .h-40 {
+    height: 8rem !important;
+  }
+
+  .h-48 {
+    height: auto !important;
+    min-height: auto !important;
+  }
+}
+
+/* Button responsive sizing */
+@media (max-width: 640px) {
+  button {
+    font-size: calc(var(--font-size-base) * 0.9);
+    padding: 0.625rem 1.25rem;
+  }
+
+  .text-xl {
+    font-size: calc(var(--font-size-xl) * 0.9);
+  }
+
+  .text-2xl {
+    font-size: calc(var(--font-size-2xl) * 0.9);
+  }
+
+  .text-3xl {
+    font-size: calc(var(--font-size-3xl) * 0.9);
+  }
+
+  .text-4xl {
+    font-size: calc(var(--font-size-4xl) * 0.9);
+  }
+
+  .text-5xl {
+    font-size: calc(var(--font-size-5xl) * 0.9);
+  }
+}
+
+/* Emoji sizing for mobile */
+@media (max-width: 640px) {
+  .text-6xl {
+    font-size: 48px !important;
+  }
+
+  .text-7xl {
+    font-size: 56px !important;
+  }
+
+  .text-8xl {
+    font-size: 64px !important;
+  }
+
+  .text-9xl {
+    font-size: 72px !important;
+  }
+}
+
+/* Touch-friendly buttons */
+@media (max-width: 640px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Mobile animation optimization */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+@media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .fixed {
+    position: fixed;
+    width: 100%;
+  }
+
+  .overflow-hidden {
+    overflow: hidden;
+  }
+}
+
+/* Modal and input responsive */
+@media (max-width: 640px) {
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+    min-height: 44px;
+  }
+
+  textarea {
+    min-height: 100px;
+  }
+}
+
+/* Grid responsive adjustments */
+@media (max-width: 640px) {
+  .grid-cols-2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .flex-row {
+    flex-direction: column !important;
+  }
+
+  .gap-4 {
+    gap: 0.75rem !important;
+  }
+
+  .gap-6 {
+    gap: 1rem !important;
+  }
+}
+
+/* Enhanced mobile animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 640px) {
+  .card-enter {
+    animation: fadeIn 0.4s ease-in;
+  }
+}
+
+/* Text overflow handling on mobile */
+@media (max-width: 640px) {
+  .text-4xl,
+  .text-5xl,
+  .text-6xl {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Image responsiveness */
+@media (max-width: 640px) {
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .max-w-md {
+    max-width: 100% !important;
+  }
+
+  .max-w-lg {
+    max-width: 100% !important;
+  }
+
+  .max-w-2xl {
+    max-width: 100% !important;
+  }
+}
+
+/* Shadow reduction on mobile for better performance */
+@media (max-width: 640px) {
+  .shadow-2xl {
+    box-shadow:
+      0 10px 15px -3px rgba(0, 0, 0, 0.1),
+      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .shadow-xl {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+/* Rounded corners adjustment */
+@media (max-width: 640px) {
+  .rounded-\[2rem\],
+  .rounded-\[2\.5rem\],
+  .rounded-\[3rem\] {
+    border-radius: 1.25rem;
+  }
+}
