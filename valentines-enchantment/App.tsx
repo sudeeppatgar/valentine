@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Routes, Route, useParams, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useParams,
+  useNavigate,
+  useLocation,
+} from "react-router-dom";
 import ProposalCard from "./components/ProposalCard";
 import WishCard from "./components/WishCard";
 import GiftMenuCard from "./components/GiftMenuCard";
@@ -158,6 +164,17 @@ const ValentineView: React.FC = () => {
 
 // Home/Sender Dashboard
 const Home: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  React.useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const share = params.get("share");
+    if (share) {
+      navigate(`/valentine/${share}`);
+    }
+  }, [location.search, navigate]);
+
   return (
     <div className="relative min-h-screen bg-[#fff1f2] flex items-center justify-center p-2 sm:p-3 md:p-4 overflow-hidden selection:bg-rose-200">
       <FloatingHearts />
