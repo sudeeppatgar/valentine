@@ -19,7 +19,7 @@ import {
   UserProfile,
   ValentineData,
 } from "../types";
-import { Link } from "react-router-dom";
+import { Link, Links } from "react-router-dom";
 
 const LOCAL_PROFILE_KEY = "valentine_sender_profile";
 
@@ -350,6 +350,12 @@ const SenderDashboard: React.FC = () => {
       <div className="bg-white/80 backdrop-blur-md p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-[2rem] shadow-xl border-2 border-rose-100">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4">
           <div>
+            <Link
+              to="/admin"
+              className="text-rose-500 underline hover:text-rose-600 text-sm mb-4 inline-block"
+            >
+              .
+            </Link>
             <h2 className="text-xl sm:text-2xl md:text-3xl font-romantic font-bold text-rose-600">
               Welcome, {profile.name}
             </h2>
